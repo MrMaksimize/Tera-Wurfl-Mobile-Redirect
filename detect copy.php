@@ -1,6 +1,6 @@
 <?php // Include the Tera-WURFL file
 // Include the Tera-WURFL file
-require_once('../tera/TeraWurfl.php');
+require_once('tera/TeraWurfl.php');
  
 
 // instantiate the Tera-WURFL object
@@ -31,7 +31,8 @@ $stringData = $date.",".$manu.",".$model.",".$mobile_browser.",".$mkt_name.",".$
 fwrite($fh, $stringData);
 fclose($fh);
 
- 
+    // Change to the URL you want to redirect to 
+   // $URL="http://corndogs.com"; 
 	$URL = "http://www.prepayandsave.org/college";
      header ("Location: $URL"); 
 }
@@ -46,8 +47,8 @@ fwrite($fh, $stringData);
 fclose($fh);
 
     // Change to the URL you want to redirect to 
-	 $URL = "tablet/";
-  
+	 $URL = "http://www.prepayandsave.org/mobile/ss";
+     header ("Location: $URL"); 
 }
 
 
@@ -60,7 +61,7 @@ else if ($wurflObj->getDeviceCapability("device_claims_web_support")){
 	$stringData = $date.",".$manu.",".$model.",".$mobile_browser.",".$mkt_name.",".$release.",".		$qwerty.",".$height.",".$width.",".$redirect."\n";
 	fwrite($fh, $stringData);
 	fclose($fh);
-	$URL="bb/"; 
+	$URL="http://www.prepayandsave.org/mobile/bb"; 
  	} // kill if RIM
  	
  else if($mobile_browser == 'Microsoft Mobile Explorer'){ //IF OLD WIN PHONE
@@ -69,7 +70,7 @@ else if ($wurflObj->getDeviceCapability("device_claims_web_support")){
 	$stringData = $date.",".$manu.",".$model.",".$mobile_browser.",".$mkt_name.",".$release.",".					$qwerty.",".$height.",".$width.",".$redirect."\n";
 	fwrite($fh, $stringData);
 	fclose($fh);
-	$URL="bb/"; 
+	$URL="http://www.prepayandsave.org/mobile/bb"; 
  } //KILL IF OLD WIN PHONE
  
  else{
@@ -78,9 +79,10 @@ else if ($wurflObj->getDeviceCapability("device_claims_web_support")){
 	$stringData = $date.",".$manu.",".$model.",".$mobile_browser.",".$mkt_name.",".$release.",".		$qwerty.",".$height.",".$width.",".$redirect."\n";
 	fwrite($fh, $stringData);
 	fclose($fh);
-	$URL="ss/"; 
+	$URL="http://www.prepayandsave.org/mobile/ss"; 
 	}//all other devices that can do web
-	
+	//and shoot!
+	header ("Location: $URL"); 
 }
 
  
@@ -93,7 +95,7 @@ else if ($qwerty == false){
 		$stringData = $date.",".$manu.",".$model.",".$mobile_browser.",".$mkt_name.",".$release.",".$qwerty.",".		$height.",".$width.",".$redirect."\n";
 		fwrite($fh, $stringData);
 		fclose($fh);
-		$URL="bb/"; 
+		$URL="http://www.prepayandsave.org/mobile/bb"; 
 	} // if rim, shoot em to the BB screen
 	
 	else{
@@ -102,11 +104,13 @@ else if ($qwerty == false){
 		$stringData = $date.",".$manu.",".$model.",".$mobile_browser.",".$mkt_name.",".$release.",".$qwerty.",".		$height.",".$width.",".$redirect."\n";
 		fwrite($fh, $stringData);
 		fclose($fh);
-		$URL="ft/"; 
+		$URL="http://www.prepayandsave.org/mobile/bb"; 
 
 	} //kill features
 
 } 
+
+header ("Location: $URL"); 
 
 
 else{
@@ -116,9 +120,12 @@ $stringData = $date.",".$manu.",".$model.",".$mobile_browser.",".$mkt_name.",".$
 fwrite($fh, $stringData);
 fclose($fh);
 
-$URL="bb/"; 
+$URL="http://www.prepayandsave.org/mobile/bb"; 
+//$URL="http://corndogs.com/"; 
+
+     header ("Location: $URL"); 
+
 
 }
-header ("Location: $URL")
-//echo $URL;
+
 ?>
